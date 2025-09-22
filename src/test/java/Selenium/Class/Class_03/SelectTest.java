@@ -31,7 +31,7 @@ public class SelectTest {
 
         List<WebElement> elements = selectState.getOptions();
         for(WebElement element : elements){
-            System.out.println(element.getText());
+            System.out.println("Elements are: " + element.getText());
         }
 
         Select selectCity = new Select(driver.findElement(By.id("city")));
