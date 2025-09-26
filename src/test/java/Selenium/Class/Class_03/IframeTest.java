@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import javax.swing.plaf.TableHeaderUI;
 import java.time.Duration;
 
 public class IframeTest {
