@@ -44,13 +44,12 @@ public class SauceDemoMethodTest extends BaseMethodTest {
     }
 
     @Test
-    public void validateStandardUserLoginShouldSucceed() throws InterruptedException {
+    public void validateStandardUserLoginShouldSucceed() {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
 
         driver.findElement(By.id("react-burger-menu-btn")).click();
-        Thread.sleep(2000);
 
         String logoutButtonText = driver.findElement(By.id("logout_sidebar_link")).getText().trim();
         Assert.assertEquals(logoutButtonText, "Logout", "Logout text matched");
@@ -58,13 +57,12 @@ public class SauceDemoMethodTest extends BaseMethodTest {
     }
 
     @Test
-    public void testProblemUserLoginShouldSucceed() throws InterruptedException {
+    public void testProblemUserLoginShouldSucceed() {
         driver.findElement(By.id("user-name")).sendKeys("problem_user");
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.id("login-button")).click();
 
         driver.findElement(By.id("react-burger-menu-btn")).click();
-        Thread.sleep(2000);
 
         String logoutButtonText = driver.findElement(By.id("logout_sidebar_link")).getText().trim();
         Assert.assertEquals(logoutButtonText, "Logout", "Logout text matched");

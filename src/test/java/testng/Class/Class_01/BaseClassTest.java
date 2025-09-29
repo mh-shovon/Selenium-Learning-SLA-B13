@@ -8,10 +8,11 @@ import org.testng.annotations.BeforeClass;
 import java.time.Duration;
 
 public class BaseClassTest {
-    WebDriver driver = new FirefoxDriver();
+    WebDriver driver;
 
     @BeforeClass
     public void launchBrowser(){
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         driver.get("https://www.saucedemo.com/");

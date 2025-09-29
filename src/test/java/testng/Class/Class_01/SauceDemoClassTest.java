@@ -6,43 +6,30 @@ import org.testng.annotations.Test;
 
 public class SauceDemoClassTest extends BaseClassTest {
     @Test(priority = 0)
-    public void checkTitleShouldSucceed() throws InterruptedException {
+    public void checkTitleShouldSucceed() {
         String title = driver.getTitle();
-        Thread.sleep(3000);
         Assert.assertEquals(title, "Swag Labs", "Title matched.");
-        Thread.sleep(3000);
         System.out.println("The Title is: " + title);
-        Thread.sleep(3000);
     }
 
     @Test(priority = 1)
-    public void verifyLoginWithoutUsernameShouldFail() throws InterruptedException {
-        Thread.sleep(3000);
+    public void verifyLoginWithoutUsernameShouldFail() {
         driver.findElement(By.id("password")).clear();
-        Thread.sleep(3000);
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
-        Thread.sleep(3000);
         driver.findElement(By.id("login-button")).click();
-        Thread.sleep(3000);
 
         String errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']")).getText().trim();
-        Thread.sleep(3000);
         Assert.assertEquals(errorMessage, "Epic sadface: Username is required", "Error message matched");
-        Thread.sleep(3000);
         System.out.println("Error Message: " + errorMessage);
-        Thread.sleep(3000);
 
         driver.findElement(By.id("password")).clear();
-        Thread.sleep(3000);
     }
 
     @Test(priority = 2)
-    public void verifyLoginWithoutPasswordShouldFail() throws InterruptedException {
+    public void verifyLoginWithoutPasswordShouldFail() {
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
-        Thread.sleep(3000);
 
         driver.findElement(By.id("login-button")).click();
-        Thread.sleep(3000);
 
         String errorMessage = driver.findElement(By.cssSelector("h3[data-test='error']")).getText().trim();
         Assert.assertEquals(errorMessage, "Epic sadface: Password is required", "Error message matched");
@@ -67,8 +54,10 @@ public class SauceDemoClassTest extends BaseClassTest {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
 
         driver.findElement(By.id("login-button")).click();
+        Thread.sleep(2000);
 
         driver.findElement(By.id("react-burger-menu-btn")).click();
+        Thread.sleep(2000);
 
         String logoutButtonText = driver.findElement(By.id("logout_sidebar_link")).getText().trim();
         Assert.assertEquals(logoutButtonText, "Logout", "Logout text matched");
@@ -77,7 +66,7 @@ public class SauceDemoClassTest extends BaseClassTest {
     }
 
     @Test(priority = 5)
-    public void testProblemUserLoginShouldSucceed() throws InterruptedException {
+    public void testProblemUserLoginShouldSucceed() {
         driver.findElement(By.id("user-name")).clear();
         driver.findElement(By.id("user-name")).sendKeys("problem_user");
 
